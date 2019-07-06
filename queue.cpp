@@ -92,6 +92,10 @@ public:
 
 };
 
+//for linked list store tail pointer
+//to enqueue in O(1)
+
+
 
 int main(){
 	LinearArrayQueue q1;
