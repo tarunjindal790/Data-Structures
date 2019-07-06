@@ -6,6 +6,7 @@ class LinearArrayQueue{
 	int rear;
 	int n;
 	int queue[5];
+	friend class CircularArrayQueue;
 public:
 	LinearArrayQueue(){
 		front=rear=-1;
@@ -65,18 +66,10 @@ public:
 //current pos:i
 //next pos:(i+1)%n
 //prev pos:(i+n-1)%n
-//implement here
 
-class CircularArrayQueue{
-
-	int front,rear,n;
-	int queue[5];
+class CircularArrayQueue :public LinearArrayQueue{
 
 public:
-	CircularArrayQueue(){
-		front=rear=-1;
-		n=5;
-	}
 
 	void enqueue(int data){
 		if((rear+1)%n==front){
@@ -96,36 +89,6 @@ public:
 		}
 		
 	}
-	void dequeue(){
-		if(rear==-1 && front==-1){
-			cout<<"Queue is empty"<<endl;
-			return;
-		}else if(front==rear){
-			cout<<"Removed from queue: "<<queue[front]<<endl;
-			front=rear=-1;
-			display();
-		}
-		else{
-			cout<<"Removed from queue: "<<queue[front]<<endl;
-			front++;
-			display();
-		}
-
-	}
-	void display(){
-		if(rear==-1 && front==-1){
-			cout<<"Queue is empty"<<endl;
-			return;
-		}else{
-			cout<<"Queue: ";
-			for(int i=front;i<=rear;i++){
-				cout<<queue[i]<<" ";
-			}
-			cout<<endl;
-		}
-	}
-
-
 
 };
 
